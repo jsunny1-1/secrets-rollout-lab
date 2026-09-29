@@ -1,0 +1,77 @@
+{
+  "active_versions": [
+    "v1"
+  ],
+  "claims": {
+    "distributed_safety_validated": false,
+    "production_security_validated": false,
+    "real_provider_integration": false
+  },
+  "events": [
+    {
+      "action": "candidate_created",
+      "prior_version": "v1",
+      "sequence": 1,
+      "version": "v2"
+    },
+    {
+      "action": "promotion_stopped",
+      "error_type": "VerificationFailed",
+      "phase": "canary",
+      "sequence": 2,
+      "service": "worker-a"
+    },
+    {
+      "action": "consumer_verified",
+      "phase": "rollback",
+      "sequence": 3,
+      "service": "worker-a",
+      "version": "v1"
+    },
+    {
+      "action": "consumer_verified",
+      "phase": "rollback",
+      "sequence": 4,
+      "service": "worker-b",
+      "version": "v1"
+    },
+    {
+      "action": "consumer_verified",
+      "phase": "rollback",
+      "sequence": 5,
+      "service": "worker-c",
+      "version": "v1"
+    },
+    {
+      "action": "version_revoked",
+      "sequence": 6,
+      "verified_consumers": 3,
+      "version": "v2"
+    }
+  ],
+  "mode": "synthetic_in_memory_simulation",
+  "registered_consumers": 3,
+  "scenario": "canary-failure",
+  "schema_version": 1,
+  "services": [
+    {
+      "configured_version": "v1",
+      "healthy": true,
+      "observed_version": "v1",
+      "service": "worker-a"
+    },
+    {
+      "configured_version": "v1",
+      "healthy": true,
+      "observed_version": "v1",
+      "service": "worker-b"
+    },
+    {
+      "configured_version": "v1",
+      "healthy": true,
+      "observed_version": "v1",
+      "service": "worker-c"
+    }
+  ],
+  "status": "SAFE_ROLLBACK"
+}

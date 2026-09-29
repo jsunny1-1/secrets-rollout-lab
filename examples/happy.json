@@ -1,0 +1,70 @@
+{
+  "active_versions": [
+    "v2"
+  ],
+  "claims": {
+    "distributed_safety_validated": false,
+    "production_security_validated": false,
+    "real_provider_integration": false
+  },
+  "events": [
+    {
+      "action": "candidate_created",
+      "prior_version": "v1",
+      "sequence": 1,
+      "version": "v2"
+    },
+    {
+      "action": "consumer_verified",
+      "phase": "canary",
+      "sequence": 2,
+      "service": "worker-a",
+      "version": "v2"
+    },
+    {
+      "action": "consumer_verified",
+      "phase": "remaining_rollout",
+      "sequence": 3,
+      "service": "worker-b",
+      "version": "v2"
+    },
+    {
+      "action": "consumer_verified",
+      "phase": "remaining_rollout",
+      "sequence": 4,
+      "service": "worker-c",
+      "version": "v2"
+    },
+    {
+      "action": "version_revoked",
+      "sequence": 5,
+      "verified_consumers": 3,
+      "version": "v1"
+    }
+  ],
+  "mode": "synthetic_in_memory_simulation",
+  "registered_consumers": 3,
+  "scenario": "happy",
+  "schema_version": 1,
+  "services": [
+    {
+      "configured_version": "v2",
+      "healthy": true,
+      "observed_version": "v2",
+      "service": "worker-a"
+    },
+    {
+      "configured_version": "v2",
+      "healthy": true,
+      "observed_version": "v2",
+      "service": "worker-b"
+    },
+    {
+      "configured_version": "v2",
+      "healthy": true,
+      "observed_version": "v2",
+      "service": "worker-c"
+    }
+  ],
+  "status": "ROTATED"
+}
